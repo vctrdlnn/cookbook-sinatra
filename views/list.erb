@@ -1,0 +1,19 @@
+<h1>This is your cookbook</h1>
+
+<p>Do you want to <a href="/create">add a recipe ?</a></p>
+
+<p>Your saved recipes:</p>
+
+<form action="/list" method="POST" action="?"/>
+<ol>
+<% @all_recipes.each_with_index  do |recipe, index| %>
+  <li>
+    <input type="checkbox" name=<%= "#{index.to_s}" %> onchange="this.form.submit()"
+    <% if recipe.done %>
+     <%= "checked" %>
+    <% end %>
+    > </input> - <a href="/destroy/<%= index %>">delete</a> - <a href="/modify/<%= index %>">modify</a> - <%= "#{recipe.name} (#{recipe.cooking_time}) - #{recipe.description})" %>
+  </li>
+<% end %>
+</ol>
+</form>

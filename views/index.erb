@@ -1,6 +1,9 @@
-<p>
-  I'm in a <em>view</em>
-</p>
-<p>
-  <%= Time.now %>
-</p>
+<h1>Welcome to the cookbook</h1>
+<p> What do you want to do next ?</p>
+<ul>
+  <% @options.each_pair do |key, value| %>
+    <li>
+      <a href="/<%= key.to_s %>"><%= value %></a>
+    </li>
+  <% end %>
+</ul>
